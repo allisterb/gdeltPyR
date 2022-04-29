@@ -51,18 +51,18 @@
 #
 #         if table == 'events':
 #             frame = pd.read_csv(buffer, compression='zip', sep='\t',
-#                                 header=None, on_bad_lines=False,
+#                                 header=None, on_bad_lines='warn',
 #                                 dtype={26: 'str', 27: 'str', 28: 'str'},
 #                                 parse_dates=[1, 2])
 #             # print(frame.shape)
 #         elif table == 'gkg':
 #             frame = pd.read_csv(buffer, compression='zip', sep='\t',
-#                                 parse_dates=['DATE'], on_bad_lines=False)
+#                                 parse_dates=['DATE'], on_bad_lines='warn')
 #
 #         else:
 #
 #             frame = pd.read_csv(buffer, compression='zip', sep='\t',
-#                                 header=None, on_bad_lines=False)
+#                                 header=None, on_bad_lines='warn')
 #         end = datetime.datetime.now() - start
 #         # print ("{0} with id {1} finished processing in {2}".format(proc_name,proc,end))
 #         buffer.flush()

@@ -74,19 +74,19 @@ def _mp_worker(url, table=None, proxies=None):
         if table == 'events':
 
             frame = pd.read_csv(buffer, compression='zip', sep='\t',
-                                header=None, on_bad_lines=False,
+                                header=None, on_bad_lines='warn',
                                 dtype={26: 'str', 27: 'str', 28: 'str'})  # ,
             # parse_dates=[1, 2])
 
         elif table == 'gkg':
             frame = pd.read_csv(buffer, compression='zip', sep='\t',
-                                header=None, on_bad_lines=False)
-            # parse_dates=['DATE'], on_bad_lines=False)
+                                header=None, on_bad_lines='warn')
+            # parse_dates=['DATE'], on_bad_lines='warn')
 
         else:  # pragma: no cover
 
             frame = pd.read_csv(buffer, compression='zip', sep='\t',
-                                header=None, on_bad_lines=False)
+                                header=None, on_bad_lines='warn')
 
         # print("Pandas load finished in {}".\
         # format(datetime.datetime.now() - start))
